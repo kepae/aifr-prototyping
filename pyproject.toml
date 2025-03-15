@@ -1,0 +1,14 @@
+[project]
+name = "aifr-prototyping"
+version = "0.1.0"
+description = "Prototyping an MCP server that allows AI systems to generate semantic AI Flaw Reports."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["semantic-aifr"]
+
+[tool.uv.workspace]
+members = ["packages/semantic-aifr", "src/mcp-aifr"]
+
+[tool.uv.sources]
+# Package dependencies only
+semantic-aifr = { workspace = true }

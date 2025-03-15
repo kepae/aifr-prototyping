@@ -1,0 +1,136 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+# Dublin Core metadata terms
+@prefix dcterms: <http://purl.org/dc/terms/> .
+# Vocabulary for annotating vocabulary descriptions
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix aifr: <https://example.org/aifr/> .
+
+# Ontology metadata
+aifr:
+    a owl:Ontology ;
+    dcterms:title "AI Flaw Reporting Ontology"@en ;
+    dcterms:description "Vocabulary for describing AI flaws and their reporting"@en ;
+    dcterms:created "2025-03-28"^^xsd:date ;
+    vann:preferredNamespacePrefix "aifr" ;
+    vann:preferredNamespaceUri "https://example.org/aifr/" .
+
+# Classes
+aifr:FlawReport
+    a owl:Class ;
+    rdfs:label "Flaw Report"@en ;
+    rdfs:comment "A report documenting a flaw in an AI system"@en .
+
+aifr:AISystem
+    a owl:Class ;
+    rdfs:label "AI System"@en ;
+    rdfs:comment "An artificial intelligence system"@en .
+
+aifr:Reporter
+    a owl:Class ;
+    rdfs:label "Reporter"@en ;
+    rdfs:comment "A person or entity reporting a flaw"@en .
+
+# Properties
+aifr:reportId
+    a owl:DatatypeProperty ;
+    rdfs:label "report ID"@en ;
+    rdfs:comment "Unique identifier for the flaw report"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:reporterId
+    a owl:DatatypeProperty ;
+    rdfs:label "reporter ID"@en ;
+    rdfs:comment "Identifier for the person or entity reporting the flaw"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:systemVersion
+    a owl:DatatypeProperty ;
+    rdfs:label "system version"@en ;
+    rdfs:comment "Version of the AI system affected by the flaw"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:status
+    a owl:DatatypeProperty ;
+    rdfs:label "status"@en ;
+    rdfs:comment "Current status of the flaw report"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:timestamp
+    a owl:DatatypeProperty ;
+    rdfs:label "timestamp"@en ;
+    rdfs:comment "Time when the flaw report was submitted"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:dateTime .
+
+aifr:description
+    a owl:DatatypeProperty ;
+    rdfs:label "description"@en ;
+    rdfs:comment "Detailed description of the flaw"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:policyViolation
+    a owl:DatatypeProperty ;
+    rdfs:label "policy violation"@en ;
+    rdfs:comment "Description of how the flaw violates policies"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:severity
+    a owl:DatatypeProperty ;
+    rdfs:label "severity"@en ;
+    rdfs:comment "Estimated severity of the flaw"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:prevalence
+    a owl:DatatypeProperty ;
+    rdfs:label "prevalence"@en ;
+    rdfs:comment "Estimated prevalence of the flaw"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:impact
+    a owl:DatatypeProperty ;
+    rdfs:label "impact"@en ;
+    rdfs:comment "Areas impacted by the flaw"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:impactedStakeholder
+    a owl:DatatypeProperty ;
+    rdfs:label "impacted stakeholder"@en ;
+    rdfs:comment "Stakeholders who may be harmed by the flaw"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+aifr:riskSource
+    a owl:DatatypeProperty ;
+    rdfs:label "risk source"@en ;
+    rdfs:comment "Source of the risk identified in the flaw"@en ;
+    rdfs:domain aifr:FlawReport ;
+    rdfs:range xsd:string .
+
+# Status values (could be expanded to an enumeration)
+aifr:StatusSubmitted
+    a aifr:Status ;
+    rdfs:label "Submitted"@en .
+
+aifr:StatusUnderInvestigation
+    a aifr:Status ;
+    rdfs:label "Under Investigation"@en .
+
+aifr:StatusFixed
+    a aifr:Status ;
+    rdfs:label "Fixed"@en .
+
+aifr:StatusWontFix
+    a aifr:Status ;
+    rdfs:label "Won't Fix"@en .
