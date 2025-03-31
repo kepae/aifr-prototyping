@@ -3,7 +3,7 @@ name = "mcp-aifr"
 version = "0.1.0"
 description = "Prototype model context protocol (MCP) server to play with the semantic-aifr package."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "mcp[cli]>=1.6.0",
     "semantic-aifr",
